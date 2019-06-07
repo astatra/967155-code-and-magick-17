@@ -42,8 +42,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   names.forEach(function (playersName, index) {
     var timeSpent = times[index];
-    var rank = timeSpent / maxTime;
-    var currentBarHeight = rank * MAX_BAR;
+    var currentBarHeight = timeSpent / maxTime * MAX_BAR;
 
     var currentResultX = CLOUD_PADDING_X + (COLUMN_WIDTH + COLUMN_GAP) * index;
     var currentResultY = titleBottom + FONT_SIZE + GAP * 2 + MAX_BAR - currentBarHeight;
@@ -51,7 +50,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (playersName === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'rgba(31, 58, 147,' + rank + ')';
+      ctx.fillStyle = 'rgba(31, 58, 147,' + Math.random() + ')';
     }
 
     ctx.fillRect(currentResultX, currentResultY, BAR_WIDTH, currentBarHeight);

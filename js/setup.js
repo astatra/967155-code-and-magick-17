@@ -71,7 +71,7 @@ function fillPlaceholder(element, data) {
 /**
  * @param {Wizard[]} objects
  */
-function createElement(objects) {
+function appendSimilarWizards(objects) {
   var template = document.querySelector('#similar-wizard-template');
   var rootElement = template.content.querySelector('.setup-similar-item');
   var container = document.querySelector('.setup-similar-list');
@@ -86,7 +86,7 @@ function createElement(objects) {
   container.appendChild(fragment);
 }
 
-createElement(makeWizard(4));
+appendSimilarWizards(makeWizard(4));
 
 var setupSimElement = document.querySelector('.setup-similar');
 setupSimElement.classList.remove('hidden');
